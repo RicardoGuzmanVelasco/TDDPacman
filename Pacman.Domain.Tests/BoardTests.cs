@@ -1,10 +1,13 @@
-﻿namespace Pacman.Domain.Tests;
+﻿using FluentAssertions;
+
+namespace Pacman.Domain.Tests;
 
 public class BoardTests
 {
     [Test]
     public void OurFirstTest()
     {
-        Assert.Pass();
+        true.Should().BeTrue();
+        Assert.That(true, Is.True);
     }
 }
