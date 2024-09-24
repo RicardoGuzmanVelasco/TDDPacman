@@ -124,14 +124,16 @@ public class BoardTests
     {
         new Board(1, 1).IsInsideTheBoard((0, 1)).Should().BeFalse();
         new Board(1, 1).IsInsideTheBoard((1, 0)).Should().BeFalse();
+
+        new Board(3, 3).IsInsideTheBoard((-2, 0)).Should().BeFalse();
     }
 
     [Test]
     public void SomePosition_IsInsideTheBoard()
     {
-        new Board(2, 2).IsInsideTheBoard((0, 1)).Should().BeTrue();
-        new Board(2, 2).IsInsideTheBoard((1, 0)).Should().BeTrue();
-        new Board(2, 2).IsInsideTheBoard((1, 1)).Should().BeTrue();
+        new Board(3, 3).IsInsideTheBoard((0, 1)).Should().BeTrue();
+        new Board(3, 3).IsInsideTheBoard((1, 0)).Should().BeTrue();
+        new Board(3, 3).IsInsideTheBoard((1, 1)).Should().BeTrue();
 
         new Board(3, 3).IsInsideTheBoard((-1, 0)).Should().BeTrue();
         new Board(3, 3).IsInsideTheBoard((0, -1)).Should().BeTrue();

@@ -55,8 +55,8 @@ public class Board
 
     public bool IsInsideTheBoard((int x, int y) position)
     {
-        var isInsideHorizontal = Math.Abs(position.x) < size.cols;
-        var isInsideVertical = Math.Abs(position.y) < size.rows;
+        var isInsideHorizontal = Math.Abs(position.x) < (size.cols / 2 + 1);
+        var isInsideVertical = Math.Abs(position.y) < (size.rows / 2 + 1);
         return isInsideHorizontal && isInsideVertical;
     }
 }
