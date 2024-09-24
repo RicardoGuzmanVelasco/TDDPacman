@@ -3,8 +3,6 @@ using static Pacman.Domain.Tests.Direction;
 
 namespace Pacman.Domain.Tests;
 
-// comprobar que se mueve hacia la dirección que queremos.
-
 public class BoardTests
 {
     [Test]
@@ -83,5 +81,29 @@ public class BoardTests
 
         sut.WhereIsPacman().x.Should().Be(0);
         sut.WhereIsPacman().y.Should().BeNegative();
+    }
+    
+    [Test]
+    public void Pacman_Moves_Left()
+    {
+        var sut = new Board();
+        sut.PacmanLooksTowards(Left);
+        
+        sut.Tick();
+
+        sut.WhereIsPacman().x.Should().BeNegative();
+        sut.WhereIsPacman().y.Should().Be(0);
+    }
+    
+    [Test]
+    public void Pacman_Moves_Right()
+    {
+        var sut = new Board();
+        sut.PacmanLooksTowards(Right);
+        
+        sut.Tick();
+
+        sut.WhereIsPacman().x.Should().BePositive();
+        sut.WhereIsPacman().y.Should().Be(0);
     }
 }
