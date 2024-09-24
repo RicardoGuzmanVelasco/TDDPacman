@@ -3,6 +3,8 @@ using static Pacman.Domain.Tests.Direction;
 
 namespace Pacman.Domain.Tests;
 
+
+//refactorizaremos para tener una clase rows/cols.
 public class BoardTests
 {
     [Test]
@@ -105,5 +107,15 @@ public class BoardTests
 
         sut.WhereIsPacman().x.Should().BePositive();
         sut.WhereIsPacman().y.Should().Be(0);
+    }
+
+    [Test]
+    public void SomePosition_IsInsideTheBoard()
+    {
+        var sut = new Board(1, 1);
+        
+        var result = sut.IsInsideTheBoard((0, 0));
+        
+        result.Should().BeTrue();
     }
 }
