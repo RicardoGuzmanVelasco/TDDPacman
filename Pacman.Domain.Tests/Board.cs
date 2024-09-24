@@ -55,8 +55,27 @@ public class Board
 
     public bool IsInsideTheBoard((int x, int y) position)
     {
-        var isInsideHorizontal = Math.Abs(position.x) < (size.cols / 2 + 1);
-        var isInsideVertical = Math.Abs(position.y) < (size.rows / 2 + 1);
+        var isInsideHorizontal = Math.Abs(position.x) < DistanceFromCenterToHorizontalBound();
+        var isInsideVertical = Math.Abs(position.y) < DistanceFromCenterToVerticalBound();
         return isInsideHorizontal && isInsideVertical;
     }
+
+    public Direction WhereHasExistsTheBounds((int x, int y) position)
+    {
+        Debug.Assert(!IsInsideTheBoard(position));
+        
+        if (position.x > 0)
+            return Direction.Right;
+        if (position.y > 0)
+            return Direction.Up;
+        if (position.x < 0)
+            return Direction.Left;
+        if (position.y < 0)
+            return Direction.Down;
+
+        throw new InvalidOperationException();
+    }
+
+    int DistanceFromCenterToVerticalBound() => size.rows / 2 + 1;
+    int DistanceFromCenterToHorizontalBound() => size.cols / 2 + 1;
 }
