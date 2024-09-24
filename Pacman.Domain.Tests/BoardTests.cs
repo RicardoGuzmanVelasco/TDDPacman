@@ -1,4 +1,5 @@
 ﻿using FluentAssertions;
+using static Pacman.Domain.Tests.Direction;
 
 namespace Pacman.Domain.Tests;
 
@@ -36,7 +37,7 @@ public class BoardTests
 
         var result = sut.WhereIsPacmanLookingTowards();
 
-        result.Should().Be(Direction.None);
+        result.Should().Be(None);
     }
 
     [Test]
@@ -44,19 +45,31 @@ public class BoardTests
     {
         var sut = new Board();
         
-        sut.PacmanLooksTowards(Direction.Up);
+        sut.PacmanLooksTowards(Up);
         
-        sut.WhereIsPacmanLookingTowards().Should().Be(Direction.Up);
+        sut.WhereIsPacmanLookingTowards().Should().Be(Up);
     }
 
     [Test]
     public void Pacman_Moves_WhenIsLookingTowardsSomewhere()
     {
         var sut = new Board();
-        sut.PacmanLooksTowards(Direction.Up);
+        sut.PacmanLooksTowards(Up);
         
         sut.Tick();
 
         sut.WhereIsPacman().Should().NotBe((0, 0));
+    }
+
+    [Test]
+    public void Pacman_Moves_Up()
+    {
+        var sut = new Board();
+        sut.PacmanLooksTowards(Up);
+        
+        sut.Tick();
+
+        sut.WhereIsPacman().x.Should().Be(0);
+        sut.WhereIsPacman().y.Should().BePositive();
     }
 }

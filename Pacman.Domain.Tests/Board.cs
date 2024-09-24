@@ -17,8 +17,8 @@ public class Board
 
     public void Tick()
     {
-        if(pacmanDirection != Direction.None)
-            pacmanPosition = (35545, 98980);
+        if (pacmanDirection != Direction.None)
+            pacmanPosition = (0, 1);
     }
 
     public void PacmanLooksTowards(Direction towards)
