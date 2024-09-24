@@ -17,7 +17,12 @@ public class Board
 
     public void Tick()
     {
-        if (pacmanDirection != Direction.None)
+        if (pacmanDirection == Direction.None)
+            return;
+        
+        if (pacmanDirection == Direction.Down)
+            pacmanPosition = (0, -1);
+        if (pacmanDirection == Direction.Up)
             pacmanPosition = (0, 1);
     }
 

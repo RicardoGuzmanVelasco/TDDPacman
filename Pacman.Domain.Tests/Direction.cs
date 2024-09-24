@@ -3,5 +3,6 @@
 public enum Direction
 {
     None,
-    Up
+    Up,
+    Down
 }

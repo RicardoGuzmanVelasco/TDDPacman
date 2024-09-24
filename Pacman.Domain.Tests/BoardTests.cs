@@ -72,4 +72,16 @@ public class BoardTests
         sut.WhereIsPacman().x.Should().Be(0);
         sut.WhereIsPacman().y.Should().BePositive();
     }
+    
+    [Test]
+    public void Pacman_Moves_Down()
+    {
+        var sut = new Board();
+        sut.PacmanLooksTowards(Down);
+        
+        sut.Tick();
+
+        sut.WhereIsPacman().x.Should().Be(0);
+        sut.WhereIsPacman().y.Should().BeNegative();
+    }
 }
