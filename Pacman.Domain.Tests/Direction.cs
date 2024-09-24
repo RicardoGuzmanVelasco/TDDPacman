@@ -23,4 +23,19 @@ public static class DirectionToTuple
             _ => throw new InvalidOperationException()
         };
     }
+    
+    public static Direction ToDirection(this (int x, int y) tuple)
+    {
+        if(tuple.x > 0)
+            return Direction.Right;
+        if(tuple.x < 0)
+            return Direction.Left;
+        
+        if(tuple.y > 0)
+            return Direction.Up;
+        if(tuple.y < 0)
+            return Direction.Down;
+        
+        return Direction.None;
+    }
 }

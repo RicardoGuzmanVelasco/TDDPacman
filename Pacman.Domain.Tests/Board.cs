@@ -63,17 +63,7 @@ public class Board
     public Direction WhereHasExistsTheBounds((int x, int y) position)
     {
         Debug.Assert(!IsInsideTheBoard(position));
-        
-        if (position.x > 0)
-            return Direction.Right;
-        if (position.y > 0)
-            return Direction.Up;
-        if (position.x < 0)
-            return Direction.Left;
-        if (position.y < 0)
-            return Direction.Down;
-
-        throw new InvalidOperationException();
+        return position.ToDirection();
     }
 
     int DistanceFromCenterToVerticalBound() => size.rows / 2 + 1;
