@@ -2,12 +2,26 @@
 
 namespace Pacman.Domain.Tests;
 
+//dónde está pacman, existe pacman
+//
+
 public class BoardTests
 {
     [Test]
     public void OurFirstTest()
     {
-        true.Should().BeTrue();
-        Assert.That(true, Is.True);
+        var sut = new Board();
+        
+        var result = sut.WhereIsPacman();
+        
+        result.Should().Be((0, 0));
+    }
+}
+
+public class Board
+{
+    public (int x, int y) WhereIsPacman()
+    {
+        return (0, 0);
     }
 }
