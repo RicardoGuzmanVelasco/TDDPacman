@@ -53,10 +53,10 @@ public class Board
         pacmanDirection = towards;
     }
 
-    public bool IsInsideTheBoard((int, int) position)
+    public bool IsInsideTheBoard((int x, int y) position)
     {
-        if(position == (0, 0))
-            return true;
-        return size == (2, 2);
+        var isInsideHorizontal = Math.Abs(position.x) < size.cols;
+        var isInsideVertical = Math.Abs(position.y) < size.rows;
+        return isInsideHorizontal && isInsideVertical;
     }
 }
