@@ -2,8 +2,7 @@
 
 namespace Pacman.Domain.Tests;
 
-// se puede mover si mira hacia alguna dirección
-//
+// comprobar que se mueve hacia la dirección que queremos.
 
 public class BoardTests
 {
@@ -51,8 +50,13 @@ public class BoardTests
     }
 
     [Test]
-    public void Pacman_MovesTowards_WhatItSees()
+    public void Pacman_Moves_WhenIsLookingTowardsSomewhere()
     {
+        var sut = new Board();
+        sut.PacmanLooksTowards(Direction.Up);
         
+        sut.Tick();
+
+        sut.WhereIsPacman().Should().NotBe((0, 0));
     }
 }
