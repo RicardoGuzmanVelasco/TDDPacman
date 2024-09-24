@@ -55,6 +55,8 @@ public class Board
 
     public bool IsInsideTheBoard((int, int) position)
     {
-        return true;
+        if(position == (0, 0))
+            return true;
+        return false;
     }
 }

@@ -110,12 +110,21 @@ public class BoardTests
     }
 
     [Test]
-    public void SomePosition_IsInsideTheBoard()
+    public void Zero_IsInsideTheBoard()
     {
         var sut = new Board(1, 1);
         
         var result = sut.IsInsideTheBoard((0, 0));
         
         result.Should().BeTrue();
+    }
+
+    [Test]
+    public void SomePosition_IsNotInsideTheBoard()
+    {
+        var sut = new Board(1, 1);
+
+        sut.IsInsideTheBoard((0, 1)).Should().BeFalse();
+        sut.IsInsideTheBoard((1, 0)).Should().BeFalse();
     }
 }
