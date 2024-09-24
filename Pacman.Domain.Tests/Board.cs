@@ -57,6 +57,6 @@ public class Board
     {
         if(position == (0, 0))
             return true;
-        return false;
+        return size == (2, 2);
     }
 }
