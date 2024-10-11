@@ -32,4 +32,10 @@ public class Board
         Debug.Assert(!IsInsideTheBoard(position));
         return position.ToDirection();
     }
+
+    public void Block(Coord coord)
+    {
+        
+    }
+    
 }
