@@ -10,6 +10,13 @@ public class Board
     public Board() { }
     public Board(int cols, int rows) : this(new Size(rows, cols)) { }
     public Board(Size size) { this.size = size; }
+
+    public static Board Start()
+    {
+        var result = new Board();
+        result.PacmanLooksTowards(Direction.Right);
+        return result;
+    }
     
     public Direction WhereIsPacmanLookingTowards => pacman.WhereIsLookingTowards;
     public Coord WhereIsPacman => pacman.WhereIs;
