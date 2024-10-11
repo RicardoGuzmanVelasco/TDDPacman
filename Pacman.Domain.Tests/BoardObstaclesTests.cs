@@ -15,6 +15,6 @@ public class BoardObstaclesTests
         
         sut.Tick();
 
-        sut.WhereIsPacman.Should().NotBe(Coord.Zero);
+        sut.WhereIsPacman.Should().NotBe(Tile.Zero);
     }
 }

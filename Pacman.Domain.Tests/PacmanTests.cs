@@ -11,7 +11,7 @@ public class PacmanTests
         
         var result = sut.WhereIsPacman;
         
-        result.Should().Be(Coord.Zero);
+        result.Should().Be(Tile.Zero);
     }
     
     [Test]
@@ -24,7 +24,7 @@ public class PacmanTests
         sut.Tick();
         sut.Tick();
         
-        sut.WhereIsPacman.Should().Be(Coord.Zero);
+        sut.WhereIsPacman.Should().Be(Tile.Zero);
     }
 
     [Test]

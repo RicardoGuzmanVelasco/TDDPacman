@@ -19,12 +19,12 @@ public class Board
     }
     
     public Direction WhereIsPacmanLookingTowards => pacman.WhereIsLookingTowards;
-    public Coord WhereIsPacman => pacman.WhereIs;
+    public Tile WhereIsPacman => pacman.WhereIs;
 
-    public Coord TopLeft => new(-size.Cols / 2, size.Rows / 2);
-    public Coord TopRight => new(size.Cols / 2, size.Rows / 2);
-    public Coord BottomLeft => new(-size.Cols / 2, -size.Rows / 2);
-    public Coord BottomRight => new(size.Cols / 2, -size.Rows / 2);
+    public Tile TopLeft => new(-size.Cols / 2, size.Rows / 2);
+    public Tile TopRight => new(size.Cols / 2, size.Rows / 2);
+    public Tile BottomLeft => new(-size.Cols / 2, -size.Rows / 2);
+    public Tile BottomRight => new(size.Cols / 2, -size.Rows / 2);
 
     public void PacmanLooksTowards(Direction towards) => pacman.LookTowards(towards);
 
@@ -46,8 +46,8 @@ public class Board
         return position.ToDirection();
     }
 
-    public void Block(int x, int y) => Block(new Coord(x, y));
-    public void Block(Coord coord)
+    public void Block(int x, int y) => Block(new Tile(x, y));
+    public void Block(Tile tile)
     {
         
     }
