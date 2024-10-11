@@ -5,9 +5,9 @@ namespace Pacman.Domain.Tests;
 public class Board
 {
     readonly Size size;
-    
-    public Direction WhereIsPacmanLookingTowards { get; private set; } = Direction.None;
-    public Coord WhereIsPacman { get; private set; } = Coord.Zero;
+
+    public Direction WhereIsPacmanLookingTowards => pacman.WhereIsLookingTowards;
+    public Coord WhereIsPacman => pacman.WhereIs;
     Pacman pacman = Pacman.Spawn();
 
     public Board() { }
@@ -25,7 +25,7 @@ public class Board
         if (WhereIsPacmanLookingTowards == Direction.None)
             return;
 
-        WhereIsPacman += WhereToMovePacmanTowards();
+        pacman.MoveTowards(WhereToMovePacmanTowards());
     }
 
     (int x, int y) WhereToMovePacmanTowards()
@@ -37,7 +37,7 @@ public class Board
     public void PacmanLooksTowards(Direction towards)
     {
         Debug.Assert(towards != Direction.None);
-        WhereIsPacmanLookingTowards = towards;
+        pacman.LookTowards(towards);
     }
 
     public bool IsInsideTheBoard((int x, int y) position)
