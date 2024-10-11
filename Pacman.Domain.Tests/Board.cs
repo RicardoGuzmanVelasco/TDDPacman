@@ -13,6 +13,7 @@ public class Board
     {
         Debug.Assert(rows > 0);
         Debug.Assert(cols > 0);
+        
         size = (rows, cols);
     }
 

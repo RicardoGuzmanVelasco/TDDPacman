@@ -44,7 +44,7 @@ public class BoardTests
     }
 
     [Test]
-    public void YouCan_Changes_WherePacmanLooksTowards()
+    public void YouCan_Change_WherePacmanLooksTowards()
     {
         var sut = new Board();
         
@@ -113,7 +113,7 @@ public class BoardTests
     }
 
     [Test]
-    public void Zero_IsInsideTheBoard()
+    public void ZeroZero_IsInsideTheBoard()
     {
         var sut = new Board(1, 1);
         
