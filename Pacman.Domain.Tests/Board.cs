@@ -6,17 +6,13 @@ public class Board
 {
     readonly Size size;
     
-    Direction pacmanDirection = Direction.None;
+    public Direction WhereIsPacmanLookingTowards { get; private set; } = Direction.None;
     public Coord WhereIsPacman { get; private set; } = Coord.Zero;
 
     public Board() { }
     public Board(int cols, int rows) : this(new Size(rows, cols)) { }
     public Board(Size size) { this.size = size; }
 
-    public Direction WhereIsPacmanLookingTowards()
-    {
-        return pacmanDirection;
-    }
 
     public void Tick()
     {
@@ -25,7 +21,7 @@ public class Board
 
     void MovePacman()
     {
-        if (pacmanDirection == Direction.None)
+        if (WhereIsPacmanLookingTowards == Direction.None)
             return;
 
         WhereIsPacman += WhereToMovePacmanTowards();
@@ -33,14 +29,14 @@ public class Board
 
     (int x, int y) WhereToMovePacmanTowards()
     {
-        Debug.Assert(WhereIsPacmanLookingTowards() != Direction.None);
-        return WhereIsPacmanLookingTowards().ToTuple();
+        Debug.Assert(WhereIsPacmanLookingTowards != Direction.None);
+        return WhereIsPacmanLookingTowards.ToTuple();
     }
 
     public void PacmanLooksTowards(Direction towards)
     {
         Debug.Assert(towards != Direction.None);
-        pacmanDirection = towards;
+        WhereIsPacmanLookingTowards = towards;
     }
 
     public bool IsInsideTheBoard((int x, int y) position)

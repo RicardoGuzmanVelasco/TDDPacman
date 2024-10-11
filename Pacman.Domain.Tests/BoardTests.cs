@@ -36,7 +36,7 @@ public class BoardTests
     {
         var sut = new Board();
 
-        var result = sut.WhereIsPacmanLookingTowards();
+        var result = sut.WhereIsPacmanLookingTowards;
 
         result.Should().Be(None);
     }
@@ -48,7 +48,7 @@ public class BoardTests
         
         sut.PacmanLooksTowards(Up);
         
-        sut.WhereIsPacmanLookingTowards().Should().Be(Up);
+        sut.WhereIsPacmanLookingTowards.Should().Be(Up);
     }
 
     [Test]
