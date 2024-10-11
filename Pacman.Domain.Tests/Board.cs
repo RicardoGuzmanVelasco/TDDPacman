@@ -13,9 +13,9 @@ public class Board
     public Board(int cols, int rows) : this(new Size(rows, cols)) { }
     public Board(Size size) { this.size = size; }
 
-    public (int x, int y) WhereIsPacman()
+    public Coord WhereIsPacman()
     {
-        return (pacmanPosition.X, pacmanPosition.Y);
+        return pacmanPosition;
     }
 
     public Direction WhereIsPacmanLookingTowards()
