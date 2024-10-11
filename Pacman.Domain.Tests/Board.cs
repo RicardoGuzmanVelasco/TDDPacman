@@ -5,6 +5,8 @@ namespace Pacman.Domain.Tests;
 public class Board
 {
     readonly (int rows, int cols) size = (2, 2);
+    readonly Size size_NEWXXXXXKLAJSDFKLAJDF;
+    
     Direction pacmanDirection = Direction.None;
     (int x, int y) pacmanPosition = (0, 0);
 
@@ -15,6 +17,13 @@ public class Board
         Debug.Assert(cols > 0);
         
         size = (rows, cols);
+        this.size_NEWXXXXXKLAJSDFKLAJDF = new Size(cols, rows);
+    }
+
+    public Board(Size size)
+    {
+        this.size = (size.Cols, size.Rows);
+        this.size_NEWXXXXXKLAJSDFKLAJDF = size;
     }
 
     public (int x, int y) WhereIsPacman()
