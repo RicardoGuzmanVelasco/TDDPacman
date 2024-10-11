@@ -8,10 +8,7 @@ public class BoardObstaclesTests
     public void Moves_IfNotBlocked()
     {
         var sut = Board.Start();
-        sut.Block(sut.BottomLeft);
-        sut.Block(sut.BottomRight);
-        sut.Block(sut.TopLeft);
-        sut.Block(sut.TopRight);
+        sut.Block(sut.Corners);
         
         sut.Tick();
 

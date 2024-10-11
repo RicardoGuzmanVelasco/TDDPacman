@@ -25,6 +25,7 @@ public class Board
     public Tile TopRight => new(size.Cols / 2, size.Rows / 2);
     public Tile BottomLeft => new(-size.Cols / 2, -size.Rows / 2);
     public Tile BottomRight => new(size.Cols / 2, -size.Rows / 2);
+    public Tile[] Corners => new[] { TopLeft, TopRight, BottomLeft, BottomRight };
 
     public void PacmanLooksTowards(Direction towards) => pacman.LookTowards(towards);
 
@@ -50,5 +51,11 @@ public class Board
     public void Block(Tile tile)
     {
         
+    }
+    
+    public void Block(params Tile[] tiles)
+    {
+        foreach (var tile in tiles)
+            Block(tile);
     }
 }
