@@ -16,6 +16,6 @@ public readonly struct Size
         Cols = cols;
     }
     
-    int DistanceFromCenterToVerticalBound() => Rows / 2 + 1;
-    int DistanceFromCenterToHorizontalBound() => Cols / 2 + 1;
+    public int DistanceFromCenterToVerticalBound() => Rows / 2 + 1;
+    public int DistanceFromCenterToHorizontalBound() => Cols / 2 + 1;
 }

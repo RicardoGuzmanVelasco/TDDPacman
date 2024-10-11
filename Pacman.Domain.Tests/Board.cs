@@ -4,27 +4,14 @@ namespace Pacman.Domain.Tests;
 
 public class Board
 {
-    readonly (int rows, int cols) size = (2, 2);
-    readonly Size size_NEWXXXXXKLAJSDFKLAJDF;
+    readonly Size size;
     
     Direction pacmanDirection = Direction.None;
     (int x, int y) pacmanPosition = (0, 0);
 
     public Board() { }
-    public Board(int cols, int rows)
-    {
-        Debug.Assert(rows > 0);
-        Debug.Assert(cols > 0);
-        
-        size = (rows, cols);
-        this.size_NEWXXXXXKLAJSDFKLAJDF = new Size(cols, rows);
-    }
-
-    public Board(Size size)
-    {
-        this.size = (size.Cols, size.Rows);
-        this.size_NEWXXXXXKLAJSDFKLAJDF = size;
-    }
+    public Board(int cols, int rows) : this(new Size(rows, cols)) { }
+    public Board(Size size) { this.size = size; }
 
     public (int x, int y) WhereIsPacman()
     {
@@ -65,8 +52,8 @@ public class Board
 
     public bool IsInsideTheBoard((int x, int y) position)
     {
-        var isInsideHorizontal = Math.Abs(position.x) < DistanceFromCenterToHorizontalBound();
-        var isInsideVertical = Math.Abs(position.y) < DistanceFromCenterToVerticalBound();
+        var isInsideHorizontal = Math.Abs(position.x) < size.DistanceFromCenterToHorizontalBound();
+        var isInsideVertical = Math.Abs(position.y) < size.DistanceFromCenterToVerticalBound();
         return isInsideHorizontal && isInsideVertical;
     }
 
@@ -75,7 +62,4 @@ public class Board
         Debug.Assert(!IsInsideTheBoard(position));
         return position.ToDirection();
     }
-
-    int DistanceFromCenterToVerticalBound() => size.rows / 2 + 1;
-    int DistanceFromCenterToHorizontalBound() => size.cols / 2 + 1;
 }
