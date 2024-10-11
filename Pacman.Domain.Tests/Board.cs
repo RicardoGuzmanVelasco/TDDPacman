@@ -13,10 +13,7 @@ public class Board
     public Board(int cols, int rows) : this(new Size(rows, cols)) { }
     public Board(Size size) { this.size = size; }
 
-    public Coord WhereIsPacman()
-    {
-        return pacmanPosition;
-    }
+    public Coord WhereIsPacman => pacmanPosition;
 
     public Direction WhereIsPacmanLookingTowards()
     {

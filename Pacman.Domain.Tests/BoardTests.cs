@@ -15,7 +15,7 @@ public class BoardTests
     {
         var sut = new Board();
         
-        var result = sut.WhereIsPacman();
+        var result = sut.WhereIsPacman;
         
         result.Should().Be(Coord.Zero);
     }
@@ -30,7 +30,7 @@ public class BoardTests
         sut.Tick();
         sut.Tick();
         
-        sut.WhereIsPacman().Should().Be(Coord.Zero);
+        sut.WhereIsPacman.Should().Be(Coord.Zero);
     }
 
     [Test]
@@ -61,7 +61,7 @@ public class BoardTests
         
         sut.Tick();
 
-        sut.WhereIsPacman().Should().NotBe((0, 0));
+        sut.WhereIsPacman.Should().NotBe((0, 0));
     }
 
     [Test]
@@ -72,8 +72,8 @@ public class BoardTests
         
         sut.Tick();
 
-        sut.WhereIsPacman().X.Should().Be(0);
-        sut.WhereIsPacman().Y.Should().BePositive();
+        sut.WhereIsPacman.X.Should().Be(0);
+        sut.WhereIsPacman.Y.Should().BePositive();
     }
     
     [Test]
@@ -84,8 +84,8 @@ public class BoardTests
         
         sut.Tick();
 
-        sut.WhereIsPacman().X.Should().Be(0);
-        sut.WhereIsPacman().Y.Should().BeNegative();
+        sut.WhereIsPacman.X.Should().Be(0);
+        sut.WhereIsPacman.Y.Should().BeNegative();
     }
     
     [Test]
@@ -96,8 +96,8 @@ public class BoardTests
         
         sut.Tick();
 
-        sut.WhereIsPacman().X.Should().BeNegative();
-        sut.WhereIsPacman().Y.Should().Be(0);
+        sut.WhereIsPacman.X.Should().BeNegative();
+        sut.WhereIsPacman.Y.Should().Be(0);
     }
     
     [Test]
@@ -108,8 +108,8 @@ public class BoardTests
         
         sut.Tick();
 
-        sut.WhereIsPacman().X.Should().BePositive();
-        sut.WhereIsPacman().Y.Should().Be(0);
+        sut.WhereIsPacman.X.Should().BePositive();
+        sut.WhereIsPacman.Y.Should().Be(0);
     }
 
     [Test]
