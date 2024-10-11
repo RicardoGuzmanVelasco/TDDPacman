@@ -20,6 +20,12 @@ public class Board
     
     public Direction WhereIsPacmanLookingTowards => pacman.WhereIsLookingTowards;
     public Coord WhereIsPacman => pacman.WhereIs;
+
+    public Coord TopLeft => new(-size.Cols / 2, size.Rows / 2);
+    public Coord TopRight => new(size.Cols / 2, size.Rows / 2);
+    public Coord BottomLeft => new(-size.Cols / 2, -size.Rows / 2);
+    public Coord BottomRight => new(size.Cols / 2, -size.Rows / 2);
+
     public void PacmanLooksTowards(Direction towards) => pacman.LookTowards(towards);
 
     public void Tick()
@@ -40,9 +46,9 @@ public class Board
         return position.ToDirection();
     }
 
+    public void Block(int x, int y) => Block(new Coord(x, y));
     public void Block(Coord coord)
     {
         
     }
-    
 }

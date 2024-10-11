@@ -11,6 +11,8 @@ public readonly struct Size
     {
         Debug.Assert(rows > 0);
         Debug.Assert(cols > 0);
+        Debug.Assert(rows % 2 == 1);
+        Debug.Assert(cols % 2 == 1);
         
         Rows = rows;
         Cols = cols;

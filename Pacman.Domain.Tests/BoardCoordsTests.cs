@@ -47,9 +47,9 @@ public class BoardCoordsTests
     [Test]
     public void WhereHasSomeCoord_ExistsTheBounds()
     {
-        new Board(40, 1).WhereHasExistsTheBounds((-21, 0)).Should().Be(Left);
-        new Board(40, 1).WhereHasExistsTheBounds((21, 0)).Should().Be(Right);
-        new Board(1, 40).WhereHasExistsTheBounds((0, 21)).Should().Be(Up);
-        new Board(1, 40).WhereHasExistsTheBounds((0, -21)).Should().Be(Down);
+        new Board(39, 1).WhereHasExistsTheBounds((-21, 0)).Should().Be(Left);
+        new Board(39, 1).WhereHasExistsTheBounds((21, 0)).Should().Be(Right);
+        new Board(1, 39).WhereHasExistsTheBounds((0, 21)).Should().Be(Up);
+        new Board(1, 39).WhereHasExistsTheBounds((0, -21)).Should().Be(Down);
     }
 }
