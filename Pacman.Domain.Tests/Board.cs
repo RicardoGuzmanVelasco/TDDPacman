@@ -8,6 +8,7 @@ public class Board
     
     public Direction WhereIsPacmanLookingTowards { get; private set; } = Direction.None;
     public Coord WhereIsPacman { get; private set; } = Coord.Zero;
+    Pacman pacman = Pacman.Spawn();
 
     public Board() { }
     public Board(int cols, int rows) : this(new Size(rows, cols)) { }
