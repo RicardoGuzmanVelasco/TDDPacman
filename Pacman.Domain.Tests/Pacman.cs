@@ -1,4 +1,6 @@
-﻿namespace Pacman.Domain.Tests;
+﻿using System.Diagnostics;
+
+namespace Pacman.Domain.Tests;
 
 public class Pacman
 {
@@ -16,11 +18,9 @@ public class Pacman
 
     public void LookTowards(Direction towards)
     {
+        Debug.Assert(towards != Direction.None);
         WhereIsLookingTowards = towards;
     }
 
-    public void MoveTowards((int x, int y) towards)
-    {
-        WhereIs += towards;
-    }
+    public void Move() => WhereIs += WhereIsLookingTowards.ToTuple();
 }

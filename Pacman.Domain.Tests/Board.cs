@@ -5,41 +5,21 @@ namespace Pacman.Domain.Tests;
 public class Board
 {
     readonly Size size;
-
-    public Direction WhereIsPacmanLookingTowards => pacman.WhereIsLookingTowards;
-    public Coord WhereIsPacman => pacman.WhereIs;
-    Pacman pacman = Pacman.Spawn();
+    readonly Pacman pacman = Pacman.Spawn();
 
     public Board() { }
     public Board(int cols, int rows) : this(new Size(rows, cols)) { }
     public Board(Size size) { this.size = size; }
-
+    
+    public Direction WhereIsPacmanLookingTowards => pacman.WhereIsLookingTowards;
+    public Coord WhereIsPacman => pacman.WhereIs;
+    public void PacmanLooksTowards(Direction towards) => pacman.LookTowards(towards);
 
     public void Tick()
     {
-        MovePacman();
+        pacman.Move();
     }
-
-    void MovePacman()
-    {
-        if (WhereIsPacmanLookingTowards == Direction.None)
-            return;
-
-        pacman.MoveTowards(WhereToMovePacmanTowards());
-    }
-
-    (int x, int y) WhereToMovePacmanTowards()
-    {
-        Debug.Assert(WhereIsPacmanLookingTowards != Direction.None);
-        return WhereIsPacmanLookingTowards.ToTuple();
-    }
-
-    public void PacmanLooksTowards(Direction towards)
-    {
-        Debug.Assert(towards != Direction.None);
-        pacman.LookTowards(towards);
-    }
-
+    
     public bool IsInsideTheBoard((int x, int y) position)
     {
         var isInsideHorizontal = Math.Abs(position.x) < size.DistanceFromCenterToHorizontalBound();
