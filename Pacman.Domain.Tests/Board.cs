@@ -11,9 +11,9 @@ public class Board
     public Board(int cols, int rows) : this(new Size(rows, cols)) { }
     public Board(Size size) { this.size = size; }
 
-    public static Board Start()
+    public static Board Start(int x, int y)
     {
-        var result = new Board();
+        var result = new Board(x, y);
         result.PacmanLooksTowards(Direction.Right);
         return result;
     }
