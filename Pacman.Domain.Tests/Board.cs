@@ -7,13 +7,11 @@ public class Board
     readonly Size size;
     
     Direction pacmanDirection = Direction.None;
-    Coord pacmanPosition = Coord.Zero;
+    public Coord WhereIsPacman { get; private set; } = Coord.Zero;
 
     public Board() { }
     public Board(int cols, int rows) : this(new Size(rows, cols)) { }
     public Board(Size size) { this.size = size; }
-
-    public Coord WhereIsPacman => pacmanPosition;
 
     public Direction WhereIsPacmanLookingTowards()
     {
@@ -30,7 +28,7 @@ public class Board
         if (pacmanDirection == Direction.None)
             return;
 
-        pacmanPosition += WhereToMovePacmanTowards();
+        WhereIsPacman += WhereToMovePacmanTowards();
     }
 
     (int x, int y) WhereToMovePacmanTowards()

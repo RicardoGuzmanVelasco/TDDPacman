@@ -3,8 +3,6 @@ using static Pacman.Domain.Tests.Direction;
 
 namespace Pacman.Domain.Tests;
 
-
-//refactorizaremos para tener una clase rows/cols.
 //movimiento circular.
 //obstáculos.
 
