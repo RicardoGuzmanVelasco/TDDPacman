@@ -12,4 +12,7 @@ public readonly struct Coord
     }
     
     public static Coord Zero => new(0, 0);
+    
+    public static Coord operator +(Coord a, Coord b) => new(a.X + b.X, a.Y + b.Y);
+    public static Coord operator +(Coord a, (int x, int y) b) => new(a.X + b.x, a.Y + b.y);
 }

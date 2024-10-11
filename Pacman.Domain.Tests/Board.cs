@@ -33,9 +33,7 @@ public class Board
         if (pacmanDirection == Direction.None)
             return;
 
-        var x = pacmanPosition.X + WhereToMovePacmanTowards().x;
-        var y = pacmanPosition.Y + WhereToMovePacmanTowards().y;
-        pacmanPosition = new Coord(x, y);
+        pacmanPosition += WhereToMovePacmanTowards();
     }
 
     (int x, int y) WhereToMovePacmanTowards()
